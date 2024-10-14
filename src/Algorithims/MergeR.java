@@ -1,4 +1,4 @@
 package Algorithims;
 
-public class Merge {
+public class MergeR {
 }
