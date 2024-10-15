@@ -1,7 +1,11 @@
 package Algorithims;
 
-public class MergeLoop {
-  public static int[] merge(int l, int r, int[] toSort){
+public class Merge {
+  public static Integer[] merge(Integer[] toSort){
+    merge(0, toSort.length-1, toSort);
+    return toSort;
+  }
+  public static Integer[] merge(int l, int r, Integer[] toSort){
     int value = toSort[l];
     if(r-l < 2){
       if(toSort[l] > toSort[r]){
