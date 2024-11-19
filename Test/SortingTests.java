@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
@@ -37,38 +39,74 @@ public class SortingTests {
     numbers = numb.toArray(new Integer[0]);
     numbers1 = numb1.toArray(new Integer[0]);
     numbers2 = numb2.toArray(new Integer[0]);
+
+  }
+  @Test
+  public void rodCut(){
+    int[] values = new int[9];
+    values[1] = 1;
+    values[2] = 5;
+    values[3] = 8;
+    values[4] = 9;
+    values[5] = 10;
+    values[6] = 17;
+    values[7] = 17;
+    values[8] = 20;
+    rodCutting cut = new rodCutting();
+    assertEquals(cut.topDownRodCut(values, 8,   3), 20  );
+
+
+  }
+  @Test
+  public void fib(){
+
+    fibonacci fib = new fibonacci();
+    assertEquals(fib.FIB(45), 1134903170 );
+
+
+  }
+  @Test
+  public void obst(){
+    obst test1 = new obst();
+    double[][] data = {
+            {-1, .04, .06, .08,.02, .1, .12, .14},
+            {.06, .06, .06, .06,.05, .05, .05 ,.05}
+    };
+    test1.obstCreation(data);
+    System.out.printf(test1.toString());
+
   }
 
   @Test
   public void Heap(){
     Heap test = new Heap();
-    assertTrue(checkSorted(test.sortHeap(numbers.clone(), numbers.length-1)));
-    assertTrue(checkSorted(test.sortHeap(numbers1.clone(), numbers1.length-1)));
-    assertTrue(checkSorted(test.sortHeap(numbers2.clone(), numbers2.length-1)));
+    assertTrue(checkSorted(test.sortHeap(numbers, numbers.length-1)));
+    assertTrue(checkSorted(test.sortHeap(numbers1, numbers1.length-1)));
+    assertTrue(checkSorted(test.sortHeap(numbers2, numbers2.length-1)));
 
   }
   @Test
   public void Inserition(){
     Inserition test = new Inserition();
-    assertTrue(checkSorted(test.insertSort(numbers.clone())));
-    assertTrue(checkSorted(test.insertSort(numbers1.clone())));
-    assertTrue(checkSorted(test.insertSort(numbers2.clone())));
+    assertTrue(checkSorted(test.insertSort(numbers)));
+    assertTrue(checkSorted(test.insertSort(numbers1)));
+    assertTrue(checkSorted(test.insertSort(numbers2)));
 
   }
   @Test
   public void Merge(){
     Merge test = new Merge();
-    assertTrue(checkSorted(test.merge(numbers.clone())));
-    assertTrue(checkSorted(test.merge(numbers1.clone())));
-    assertTrue(checkSorted(test.merge(numbers2.clone())));
+    assertTrue(checkSorted(test.merge(numbers)));
+    assertTrue(checkSorted(test.merge(numbers1)));
+    assertTrue(checkSorted(test.merge(numbers2)));
 
   }
   @Test
   public void QuickSort(){
     QuickSort test = new QuickSort();
-    assertTrue(checkSorted(test.quick(numbers.clone())));
-    assertTrue(checkSorted(test.quick(numbers1.clone())));
-    assertTrue(checkSorted(test.quick(numbers2.clone())));
+    assertTrue(checkSorted(test.quick(numbers)));
+    assertTrue(checkSorted(test.quick(numbers1)));
+    assertTrue(checkSorted(test.quick(numbers2)));
 
   }
 
